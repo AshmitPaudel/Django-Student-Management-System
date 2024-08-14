@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Delete Student</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Delete Student</h1>
+      <p>
+        Are you sure you want to delete <strong>{{ student.name }}</strong>?
+      </p>
+      <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="confirm-button">Confirm Deletion</button>
+      </form>
+      <a href="{% url 'student_list_view' %}" class="cancel-link">Cancel</a>
+    </div>
+  </body>
+</html>
